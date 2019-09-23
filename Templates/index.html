@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recent NYC News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-muted fixed-top">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Web Scraping</a> -->
+        </div>
+    </nav>
+    <header class="jumbotron jumbotron-fluid">
+        <img src="" alt="">
+        <div class="container h-100 mb-5">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-12">
+                    <h1 class="display-1 text-dark">City Watch</h1>
+                    <p class="lead text-dark ml-2">Click below to generate data.</p>
+                    <p><a class="btn btn-dark btn-lg" href="/scrape" role="button">Current insights!</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <style>
+        .jumbotron {
+            background-image: url(https://www.irishcentral.com/uploads/article/127128/cropped_copcar1.jpg?t=1531243914);
+            background-size: cover;
+            height: 100%;
+        }
+    </style>
+    <div class="container">
+        <div class="row mb-12 mt-5">
+            <div class="col-md-12 mb-5">
+                <h1>Recent NYC Crime Headlines</h1>
+                <hr>
+                <h2>NY Times</h2>
+                <h4><strong>{{crime.nytimes_article}}</strong></h4>
+                <p>{{crime.nytimes_paragraph}}</p>
+                <a class="btn btn-dark btn-lg"
+                    href="{{crime.nytimes_story_url}}"
+                    target="_blank">Learn More &raquo;</a>
+                <hr>
+                <h2>NY Daily News</h2>
+                <h4><strong>{{crime.daily_news_article}}</strong></h4>
+                <p>{{crime.daily_news_paragraph}}</p>
+                <a class="btn btn-dark btn-lg"
+                    href="{{crime.daily_news_url}}"
+                    target="_blank">Learn More &raquo;</a>
+                <hr>
+                <h2>NBC New York</h2>
+                <h4><strong>{{crime.nbc_article}}</strong></h4>
+                <p>{{crime.nbc_paragraph}}</p>
+                <a class="btn btn-dark btn-lg"
+                    href="{{crime.nbc_story_url}}"
+                    target="_blank">Learn More &raquo;</a>
+                <hr>
+                <h2>Pix 11</h2>
+                <h4><strong>{{crime.pix11_article}}</strong></h4>
+                <a class="btn btn-dark btn-lg"
+                    href="{{crime.pix11_story_url}}"
+                    target="_blank">Learn More &raquo;</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    <h1>Trending topics in your neighborhoods</h1>
+    <hr>
+    <div class="row mb-12">
+        <div class="col-md-4 mb-5">
+            <h2>NYCEM - Notify NYC</h2>
+            <hr>
+            <h5><strong>{{crime.nycem_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.nycem_tweet_url}}"
+                target="_blank">More tweets from NYCEM &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>NYPD NEWS </h2>
+            <hr>
+            <h5><strong>{{crime.nypd_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.nypd_tweet_url}}"
+                target="_blank">More tweets from NYPD &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>NYPD School Safety</h2>
+            <hr>
+            <h5><strong>{{crime.nypd_schools_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.nypd__schools_tweet_url}}"
+                target="_blank">More tweets from NYPD Schools &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>NYPD Crime Stoppers</h2>
+            <hr>
+            <h5><strong>{{crime.crime_stoppers_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.crime_stoppers_url}}"
+                target="_blank">More tweets from Crime Stoppers &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>FDNY</h2>
+            <hr>
+            <h5><strong>{{crime.fdny_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.fdny_tweet_url}}"
+                target="_blank">More tweets from FDNY &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>NYC Emergency Management</h2>
+            <hr>
+            <h5><strong>{{crime.nycmgt_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.nycmgt_tweet_url}}"
+                target="_blank">More tweets from NYC Emergency Management &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>Gothamist</h2>
+            <hr>
+            <h5><strong>{{crime.gothamist_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.gothamist_tweet_url}}"
+                target="_blank">More tweets from Gothamist &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>Safety First NYC</h2>
+            <hr>
+            <h5><strong>{{crime.safety_first_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.safety_first_url}}"
+                target="_blank">More tweets from Safety FirstNYC &raquo;</a>
+        </div>
+        <div class="col-md-4 mb-5">
+            <h2>NYC Fire</h2>
+            <hr>
+            <h5><strong>{{crime.nyc_fire_tweet}}</strong></h5>
+            <a class="btn btn-dark btn-lg"
+                href="{{crime.nyc_fire_url}}"
+                target="_blank">More tweets from NYC Fire &raquo;</a>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
