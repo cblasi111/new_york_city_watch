@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NYCW - Documentation</title>
+
+    <!-- Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- MDB Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">NYCW Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Visualizations</a>
+                <div class="dropdown-menu">
+                  <a href="#" class="dropdown-item">Demographics</a>
+                  <a href="/chart" class="dropdown-item">Analytics</a>
+                  <a href="#" class="dropdown-item">News</a> -->
+                    <!-- <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item text-light">Home</a> -->
+                    <!-- </div> -->
+                    <!-- </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/map">Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chart">Analytics</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/documentation">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="py-5 mb-4">
+        <!-- <img src="https://i.pinimg.com/originals/f1/1c/78/f11c78eb7a85cf6e3afae88f266b7775.jpg" alt=""> -->
+        <div class="container h-100 mt-4">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-12 text-center">
+                    <h1 class="display-2 text-dark mt-5">Documentation</h1>
+                    <p class="lead text-dark ml-2">Some Quick Info About Who We Are and What We Did</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h4>About Us</h4>
+        <p>This project was developed as a class project for the May 2019 Data Science program at Rutgers University.  The group consisted of three members listed below.
+            <ul>
+                <li>Ankit Rana</li>
+                <li>Suvarna Sampale</li>
+                <li>Charlie Blasi</li>
+            </ul>
+        </p>
+        <br>
+        <h4>The Project</h4>
+        <p>Our goal for this project was to look at various factors of public safety within New York City.  We wanted to gather as much data as we could find from publicly available sources including Datasets, API's, and Websites.</p>
+        <p>With data sources in hand we were able to create and deploy a functioning web application.  Below are the tools we used to perform both the server-side and front-end operations.</p>
+            <ul>
+                <li>Python/Flask: The code to scrape news and social media information from various news outlets was written using Python.  We then used Flask deploy the application to the web.</li>
+                <li>MongoDB: MongoDB was used as the database to run CRUD operations on the scraped data.</li>
+                <li>Leaflet: The Leaflet JavaScript library was used to display our data as overlays on an interactive map provided by Mapbox.</li>
+                <li>Plotly: The Plotly library was used to create the interactive graphs used to display EMS Response Times.</li>
+            </ul>
+        <br>
+        <h4>Leaflet Geo-Mapping</h4>
+        <p>Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 38 KB of
+        JS, it has all the mapping features most developers ever need. Explore <a href="https://leafletjs.com/" target="_blank">Leaflet</a>.</p>
+        <p>Using the Mapbox API, we started with light and dark base maps. Once the base maps were set, various datasets and API endpoints were used to extract data to create the layers that would be placed on top of the base maps.</p>
+            <ul>
+                <li><strong>Dataset Description</strong></li>
+                <p>The data for the interactive layers of the map were sourced from NYC Open Data.  Although, the all the data for layers came from Open Data, each layer uses a different API endpoint. The various layers used are below.</p>
+                    <ul>
+                        <li>Boroughs: A geoJson file used to map the boundaries of each NYC borough. <br>
+                            <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/tqmj-j8zm" target="_blank">Data Source</a></li>    
+                        <li>Precincts: A geoJson file used to map the jurisdiction area of each NYPD Precinct. <br>
+                            <a href="https://data.cityofnewyork.us/Public-Safety/Police-Precincts/78dh-3ptz" target="_blank">Data
+                                Source</a></li>
+                        <li>Arrests: An API endpoint of every arrest in NYC going back to 2006 through the end of the previous calendar year. <br> 
+                            <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u" target="_blank">Data
+                                Source</a></li>
+                        <li>Shootings: An API endpoint of every shooting incident that occurred in NYC going back to 2006 through the end of the previous calendar year. <br>
+                            <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Historic-/833y-fsy8" target="_blank">Data
+                                Source</a></li>
+                        <li>Summons: An API endpoint of every criminal summons issued in NYC going back to 2006 through the end of the previous calendar year. <br>
+                            <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Criminal-Court-Summons-Historic-/sv2w-rv3k" target="_blank">Data
+                                Source</a></li>
+                        <li>Crashes: An API endpoint of motor vehicle collisions in which someone is injured or killed, or where there is at least $1000 worth of damage. <br>
+                            <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions-Crashes/h9gi-nx95"
+                                target="_blank">Data
+                                Source</a></li>
+                        <li>Complaints: An API endpoint all valid felony, misdemeanor, and violation crimes reported to the New York City Police Department (NYPD) from 2006 to
+                        the end of 2017. <br>
+                            <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i"
+                                target="_blank">Data
+                                Source</a></li>
+                    </ul>
+                <br>    
+                <li><strong>Layers</strong></li>    
+                    <ul>
+                        <li>Boroughs</li>
+                            <ul>
+                                <li>Overlay of borough boundaries and a different color for each borough.</li>
+                            </ul>
+                        <li>Precincts</li>
+                            <ul>
+                                <li>Overlay of NYPD Precinct boundaries.</li>
+                            </ul>
+                        <li>Arrests</li>
+                            <ul>
+                                <li>Color: The blue shade is determined by law category.  Lighter shade for Violation and Misdemeanor and darker shade for Felony.</li>
+                                <li>Size: The marker size increases with the age group.  Smaller markers for younger suspects and larger markers for older.</li>
+                            </ul>
+                        <li>Shootings</li>
+                            <ul>
+                                <li>Color: The red shade is determined by whether the shooting resulted in a fatality. Lighter shade for victim survival and darker shade for victim fatality.</li>
+                                <li>Size: The marker size increases with the age group. Smaller markers for younger victims and larger markers for
+                                    older.</li>
+                            </ul>
+                        <li>Summons</li>
+                            <ul>
+                                <li>Color: The orange shade is determined by person's gender. Lighter shade for female and darker
+                                    shade for male.</li>
+                                <li>Size: The marker size increases with the person's age group.</li>
+                            </ul>
+                        <li>Crashes</li>
+                            <ul>
+                                <li>Color: The yellow shade is determined by whether someone was injured or killed. Lighter shade for no injuries or fatalities and darker
+                                    shade for at least one person either injured or killed.</li>
+                                <li>Size: The marker size increases with the number of people either injured or killed.</li>
+                            </ul>
+                        <li>Complaints</li>
+                            <ul>
+                                <li>Color: The purple shade is determined by law category. Lighter shade for Violation and Misdemeanor and darker
+                                    shade for Felony.</li>
+                                <li>Size: The marker size increases with the victim age group. Smaller markers for younger victim and larger markers for
+                                    older.</li>
+                            </ul>
+                    </ul>
+            </ul>
+        <br>
+        <h4>Data Analytics</h4>
+        <p>Knowledge of the availability of emergency medical services contributes topeople’s overall sense of safety, security,
+        and well-being. This module presents avisualization of ambulance and fire response times to life threatening
+        emergenciesin New York City. Life threatening emergencies include cardiac arrest, choking,anaphylactic shock, and major
+        burns. This visualization displays the responsetimes, on a monthly basis, from the period of September 2016 to June of
+        2019,broken down by New York City borough.</p>
+        <ul>
+            <li><strong>Dataset Description</strong></li>
+            <p>This dataset was obtained from the New York City Open Data portal and is called “911 Open Data Local Law 119.” It can be
+            found at this website location: https://data.cityofnewyork.us/Public-Safety/911-Open-Data-Local-Law-119/gpny-cuvw. The
+            dataset contained 2500 records when downloaded. This project focused on the category of life threatening emergencies
+            within this dataset.</p>
+            <li><strong>Cleaning Methods</strong></li>
+            <p>A CSV format and pandas was selected to load and clean the data. The stepstaken in the pandas cleaning file included:</p>
+                <ul>
+                    <li>Filtering based on the selected category (combined ems and fireresponse)</li>
+                    <li>Converting the response times from seconds to minutes</li>
+                    <li>Creating a dataframe for each specific borough</li>
+                    <li>Reorganizing, renaming, and dropping columns</li>
+                    <li>Calculating minimum and maximum times for each borough andputting it in a summary chart</li>
+                </ul>
+            <br>    
+            <li><strong>Visualization</strong></li>
+                <p>A line graph was used because we wanted to easily identify the responsetime in any given month, see how the response
+                time changed over time, and alsocompare the response times between different boroughs.</p>
+                <p>The dataset already contained the number of incidents to which eachborough was responding, and so this was superimposed
+                on top of the line chart foreach borough visualization.</p>
+                <p>Using a bar graph for the number of incidents and using a line graph for theresponse times seemed to be a good way to
+                distinguish and visually keep track ofwhat was going on in two different situations.</p>
+                <p>Animating the line graphs in situations where you are seeing if somethinggets better or worse over time, or where you
+                are comparing performance betweenmultiple groups, adds an element of suspense to the result being displayed.</p>
+                <p>Plotly was used for the visualization and its animate command allowed youto make the graphs dynamic. Information on
+                Plotly’s animate command and howto animate the data may be found here: <a>https://plot.ly/javascript/animations/</a></p>
+            <li><strong>Analysis/Takeaways</strong></li>
+                    <ul>
+                        <li>
+                            <p>The average response time in minutes by NYC fire and ambulanceunits to life threatening emergencies ranges from 7 to 10
+                            minutes.</p>
+                                <ul>
+                                    <li>
+                                        <p>No borough has had an average response time over 10 minutes</p>
+                                    </li>
+                                    <li>
+                                        <p>No borough has had an average response time under 7 minutes</p>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li>
+                            <p>Staten Island is performing the best out of all five boroughs with anaverage response time hovering between 7.5 minutes
+                            and 8 minutes.Staten Island also has a significantly lower number of incidents that itis responding to, between 2000 and
+                            3000, whereas all the otherboroughs have incident numbers in the tens of thousands.</p>
+                        </li>
+                        <li>
+                            <p>The Bronx is performing the worst out of all five boroughs. They areresponding to roughly 9000 to 12000 incidents, but
+                            Brooklyn is doing a much better job and responding to between 12000 and 14000incidents</p>
+                        </li>
+                        <li>
+                            <p>Each borough was able to achieve an average response time of undereight minutes in one month between September of 2016
+                            and June of2019.</p>
+                        </li>
+                        <li>
+                            <p>Average response times to medical emergencies between Septemberof 2016 and June of 2019 increased:</p>
+                        </li>
+                            <ul>
+                                <li>
+                                    <p>Manhattan: Approximately 13 seconds</p>
+                                </li>
+                                <li>
+                                    <p>Queens: Approximately 23 seconds</p>
+                                </li>
+                                <li>
+                                    <p>Brooklyn: Approximately 33 seconds</p>
+                                </li>
+                                <li>
+                                    <p>Bronx: 1 minute</p>
+                                </li>
+                                <li>
+                                    <p>Staten Island:   Approximately 18 seconds</p>
+                                </li>
+                            </ul>
+                        <li>
+                            <p>There does not seem to be a sharp rise in the number of life threatening emergencies.</p>
+                        </li>    
+                    </ul>
+        </ul>
+        <br>
+        <h4>Web Scraping Operations</h4>
+        <p>In addition to the data sets we used for the map and the charts, we also webscraped multiple news sites and Twitter so
+        that our users can pull in the most current news in New York City. Social media will often have stories quicker thanother
+        news outlets so we thought it would be crucial for people to have access tothis information all in one page. </p>
+        <p>Beautiful Soup was utilized to scrape the data. The data types included arearticle titles, summaries, and URL’s. In
+        addition, Twitter feeds from the variousaccounts were also extracted. A Python scrape file was created and linked to
+        aFlask application to run the scrape function and display it on an HTML page.</p>
+        <p>Below are the sources of data:</p>
+        <ul>
+            <li>News Sites</li>
+                <ul>
+                    <li>NY Times</li>
+                    <li>Daily News</li>
+                    <li>NBC New York</li>
+                    <li>Pix 11</li>
+                </ul>
+            <li>Twitter Sites</li>
+                <ul>
+                    <li>NYPD News</li>
+                    <li>NYPD Schools</li>
+                    <li>NYC Emergency Management</li>
+                    <li>NYPD Crime Stoppers</li>
+                    <li>FDNY News</li>
+                    <li>The Gothamist</li>
+                    <li>Safety First NYC</li>
+                    <li>NYC Fire</li>
+                </ul>
+        </ul>
+
+    </div>
+    <section>
+        <p>
+            <br>
+            <br>
+            <br>
+        </p>
+    </section>
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-dark">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-light py-3">© 2019 KSC Data Scientific Inc.</div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</body>
+
+<html>
